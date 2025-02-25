@@ -1,5 +1,7 @@
 library(tidyverse)
 
+#########Creation of Statistical Data########
+
 allentown_data <- read_csv("data/essentia.data.allentown.csv")
 song_data <- read_csv("data/essentia.data.csv") 
 song_stats <- function(feature){ #Takes an essentia feature as input 
@@ -25,11 +27,12 @@ group_by(artist)|>
       out.of.range ~ "Out of Range",
       unusual ~ "Outlying",
       TRUE ~ "Within Range"
-
   )
   ) |>
   ungroup()
 }
+
+#######Data Summarization#########
 
 numerical_features <- song_data |>
   select(where(is.numeric)) |> #Pulls only numerical features
@@ -39,6 +42,7 @@ for (feature in numerical_features) {
   all_features_stats <- bind_rows(all_features_stats, song_stats(feature)) #Statistics of all numerical features
 }
 ##########Part 3--Create Table for Data###########
+
 summarized_features <- all_features_stats |>
 filter(str_detect(feature, "spectral_skewness|spectral_rolloff|spectral_energyband_middle_high|spectral_complexity|spectral_centroid|melbands_spread|melbands_flatness_db|erbbands_skewness|erbbands_flatness_db|dissonance"))
 #Above I hadd to include all features on one line b/c spacing them vertically broke my code
@@ -50,6 +54,7 @@ print(table_final)
 ##write_csv(summarized_features, "summarized_features.csv") #Write csv file to use in shiny app
 
 #########STEP 4--Create Plots for Data##########
+
 #Chose to go with a barplot
 #Inserted code from ggplot which generates bar plot representing the relative frequency of the amt of times each artist is in or out of range
 
