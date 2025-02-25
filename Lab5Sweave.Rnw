@@ -23,7 +23,7 @@
 \begin{document}
 
 \vspace{-1in}
-\title{Lab 3 -- MATH 240 -- Computational Statistics}
+\title{Lab 5 -- MATH 240 -- Computational Statistics}
 
 \author{
   Charles Hooey \\
@@ -91,7 +91,7 @@ table.placement = "H", include.rownames=FALSE, size = "tiny")
 \end{figure}
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.5]{datfigure.jpg}
+\includegraphics[scale=0.4]{datfigure.jpg}
 \caption{Relative Frequency of Each Band Being Within Range of Allentown}
 \label{plot1}
 \end{center}
