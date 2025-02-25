@@ -1,5 +1,4 @@
 library(tidyverse)
-
 #########Creation of Statistical Data########
 
 allentown_data <- read_csv("data/essentia.data.allentown.csv")
